@@ -1,0 +1,43 @@
+﻿using System;
+
+class Program
+{
+    static void Main()
+    {
+        bool defendeu = false;
+
+        // Repetir 3 tentativas
+        for (int i = 1; i <= 3; i++)
+        {
+            Console.Write("Digite a força da tentativa " + i + ": ");
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out double forca))
+            {
+                // Elevar a força ao cubo usando multiplicação explícita
+                double forcaAoQuadrado = forca * forca;
+
+                if (forcaAoQuadrado > 400)
+                {
+                    defendeu = true;
+                    break; // Sai do loop se vencer
+                }
+            }
+            else
+            {
+                Console.WriteLine("Valor inválido! Tente novamente.");
+                i--; // Não conta essa tentativa
+            }
+        }
+
+        // Resultado final
+        if (defendeu)
+        {
+            Console.WriteLine("Você conseguiu defender seu reino!");
+        }
+        else
+        {
+            Console.WriteLine("Você perdeu e sucumbiu ao vilão Luxos...");
+        }
+    }
+}
