@@ -1,0 +1,107 @@
+﻿using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Sistema da Guilda contra o Dragao Vermelho ");
+
+        // Entrada de dados do heroi
+        Console.Write("Nome do heroi: ");
+        string nome = Console.ReadLine();
+
+        Console.Write("Classe do heroi (Mago, Clerigo, Guerreiro, Druida, Anao, Elfo ou Troll): ");
+        string classe = Console.ReadLine();
+
+        Console.Write("Nivel do heroi: ");
+        int nivel;
+        int.TryParse(Console.ReadLine(), out nivel);
+
+        Console.Write(" HP (Pontos de Vida): ");
+        double hp;
+        double.TryParse(Console.ReadLine(), out hp);
+
+        Console.Write("Mana (energia magica): ");
+        int mana;
+        int.TryParse(Console.ReadLine(), out mana);
+
+        Console.Write(" Ouro na mochila: ");
+        double ouro;
+        double.TryParse(Console.ReadLine(), out ouro);
+
+        Console.WriteLine("\n Avaliacao da Guilda ");
+
+        // Regra do Troll
+        if (classe == "Troll")
+        {
+            Console.WriteLine("Troll detectado! Voce foi expulso da guilda. ");
+            return;
+        }
+        else if (classe != "Troll" && !(nivel < 5))
+        {
+            Console.WriteLine("Heroi aceito na guilda! ");
+        }
+        else
+        {
+            Console.WriteLine("Seu nivel e muito baixo para entrar na guilda.");
+            return;
+        }
+
+        // Calculo do poder base
+        double poderBase = (nivel * 10) + (hp / 2) - 5;
+        Console.WriteLine("Poder base do heroi: " + poderBase);
+
+        // Verificando ataque critico
+        if (poderBase % 2 == 0)
+        {
+            Console.WriteLine("Ataque critico disponivel!");
+        }
+
+        bool podeAtacar = false;
+
+        // Classes magicas
+        if (classe == "Mago" || classe == "Druida" || classe == "Clerigo")
+        {
+            if (mana >= 30 && nivel <= 100)
+            {
+                Console.WriteLine("O heroi pode usar magia contra o dragao!");
+                podeAtacar = true;
+            }
+            else
+            {
+                Console.WriteLine("Mana insuficiente para usar magia.");
+            }
+        }
+
+        // Classes fisicas
+        else if (classe == "Guerreiro" || classe == "Anao" || classe == "Elfo")
+        {
+            if (hp > 20 && poderBase > 50)
+            {
+                Console.WriteLine("O heroi pode atacar fisicamente o dragao!");
+                podeAtacar = true;
+            }
+            else
+            {
+                Console.WriteLine("O heroi nao tem forca suficiente para atacar.");
+            }
+        }
+
+        // Tentativa de suborno
+        if (!podeAtacar)
+        {
+            Console.WriteLine("\nTentando subornar o dragao...");
+
+            if (ouro > 1000 || classe == "Anao")
+            {
+                Console.WriteLine("O dragao aceitou o suborno! Voce escapou.");
+            }
+            else
+            {
+                Console.WriteLine("O dragao recusou o suborno... voce virou churrasco!");
+            }
+        }
+
+        Console.WriteLine("\nFim da avaliacao da guilda.");
+    }
+}
