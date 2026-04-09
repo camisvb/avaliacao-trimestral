@@ -1,0 +1,6 @@
+﻿A construção começou em 09:07...
+1>------ Compilação iniciada: Projeto: tabuada, Configuração: Debug Any CPU ------
+1>  Ignorando analisadores para acelerar a construção. Você pode executar o comando 'Build' ou 'Rebuild' para executar os analisadores.
+1>  tabuada -> C:\Users\DEV\Desktop\Aprendendo Csharpe\tabuada\tabuada\bin\Debug\net10.0\tabuada.dll
+========== Compilação: 1 bem-sucedida, 0 com falha, 0 atualizada, 0 ignorada ==========
+========== Compilação concluído às 09:07 e levou 00,376 segundos ==========
