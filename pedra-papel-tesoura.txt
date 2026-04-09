@@ -1,0 +1,99 @@
+﻿using System;
+
+Console.WriteLine("===================================");
+Console.WriteLine(" DESAFIO DO GUARDIAO ");
+Console.WriteLine("===================================");
+Console.WriteLine("");
+
+Console.WriteLine("Em um reino distante existe um castelo antigo.");
+Console.WriteLine("Dentro dele esta guardado o 'Código do Poder',");
+Console.WriteLine("um código capaz de controlar toda a magia do reino.");
+
+Console.WriteLine("");
+Console.WriteLine("Mas para acessar esse código, qualquer aventureiro");
+Console.WriteLine("precisa enfrentar o Guardiao do Castelo.");
+
+Console.WriteLine("");
+Console.WriteLine("De repente, o guardiao aparece diante de você...");
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: Ola, viajante...");
+Console.WriteLine("Guardiao: Eu sou o protetor deste castelo.");
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: Apenas pessoas dignas podem acessar o Codigo do Poder.");
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: Para provar seu valor, voce precisa me vencer");
+Console.WriteLine("em um desafio antigo...");
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: O jogo de PEDRA, PAPEL ou TESOURA!");
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: Se voce vencer, o codigo sera seu.");
+Console.WriteLine("Guardiao: Mas se perder, tera que deixar o castelo.");
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: Agora diga... qual e o seu nome?");
+
+string jogador = Console.ReadLine();
+
+Console.WriteLine("");
+Console.WriteLine("Guardiao: Muito bem, " + jogador + "...");
+Console.WriteLine("Guardiao: Prepare-se para o desafio!");
+
+Console.WriteLine("");
+Console.WriteLine("Escolha sua jogada:");
+
+Console.WriteLine("1 - Pedra");
+Console.WriteLine("2 - Papel");
+Console.WriteLine("3 - Tesoura");
+
+int escolhaJogador;
+int.TryParse(Console.ReadLine(), out escolhaJogador);
+
+Random embaralhar = new Random();
+int escolhaComputador = embaralhar.Next(1, 4);
+
+Console.WriteLine("");
+Console.WriteLine("O guardiao esta escolhendo sua jogada...");
+Console.WriteLine("");
+
+if (escolhaComputador == 1)
+{
+    Console.WriteLine("O guardiao escolheu PEDRA!");
+}
+else if (escolhaComputador == 2)
+{
+    Console.WriteLine("O guardiao escolheu PAPEL!");
+}
+else
+{
+    Console.WriteLine("O guardiao escolheu TESOURA!");
+}
+
+Console.WriteLine("");
+
+if (escolhaJogador == escolhaComputador)
+{
+    Console.WriteLine("Empate! Parece que os dois são igualmente fortes.");
+}
+else if (
+(escolhaJogador == 1 && escolhaComputador == 3) ||
+(escolhaJogador == 2 && escolhaComputador == 1) ||
+(escolhaJogador == 3 && escolhaComputador == 2)
+)
+{
+    Console.WriteLine("");
+    Console.WriteLine("Guardiao: Impressionante, " + jogador + "...");
+    Console.WriteLine("Guardiao: Voce provou ser digno!");
+    Console.WriteLine("");
+    Console.WriteLine("PARABENS! Voce venceu o desafio e conquistou o Codigo do Poder!");
+}
+else
+{
+    Console.WriteLine("");
+    Console.WriteLine("Guardiao: A magia do castelo ainda é forte demais...");
+    Console.WriteLine("Guardiao: " + jogador + ", volte quando estiver mais preparado.");
+}
