@@ -1,0 +1,49 @@
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.WriteLine("Bem vindo ao Cálculo de Média");
+int cont = 0;
+float n = 0, media = 0;
+while (true)
+{
+
+    cont++;
+    Console.WriteLine($"Digite o N {cont}");
+    float.TryParse(Console.ReadLine()!.Replace(".", ","), out n);
+    //calculo da média
+    media = media + n;
+
+    Console.WriteLine("Quer sair do programa [S/N]: ");
+    string sair = Console.ReadLine()!.ToLower();
+    while (sair != "s" && sair != "n")
+    {
+        Console.WriteLine("Digite somente [S/N]");
+        sair = Console.ReadLine()!.ToLower();
+        if (sair == "s" || sair == "n")
+        {
+            break;
+        }
+        if (sair == "n")
+        {
+            break;
+        }
+    }
+    if (sair == "s")
+    {
+        break;
+    }
+}
+media = media / cont;
+Console.WriteLine($"A média é {Math.Round(media, 2)}");
+
+/* 
+  declarar variaveis
+  1° loop infinito
+  sair
+  ler
+  2° enquanto sair diferente de sim e diferente de nao
+  loop
+  ler sair
+ 
+  se sair == s
+  break
+
+*/
